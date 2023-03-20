@@ -1,7 +1,4 @@
 user_input = int(input())
 
 for i in range(1, user_input + 1):
-    output = ''
-    for j in range(i):
-        output += '*'
-    print(output)
+    print('*'*i)

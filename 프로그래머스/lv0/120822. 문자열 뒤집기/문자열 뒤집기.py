@@ -1,2 +1,1 @@
-def solution(my_string):
-    return my_string[::-1]
+solution = lambda my_string : my_string[::-1]

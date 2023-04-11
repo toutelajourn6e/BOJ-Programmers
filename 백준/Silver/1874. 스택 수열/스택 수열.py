@@ -4,14 +4,14 @@ t = int(sys.stdin.readline())
 stack = [0]
 record = list()
 index = 1
-no = False
+
 for _ in range(t):
     a = int(sys.stdin.readline())
     
     if a > stack[-1]:
         if index > a:
-            no = True
-            break
+            print('NO')
+            sys.exit()
         while not a == stack[-1]:
             stack.append(index)
             record.append('+')
@@ -28,9 +28,7 @@ for _ in range(t):
         stack.pop()
         record.append('-')
 
-if no == False:
-    for i in record:
-        print(i)
-else:
-    print('NO')
+
+for i in record:
+    print(i)
     

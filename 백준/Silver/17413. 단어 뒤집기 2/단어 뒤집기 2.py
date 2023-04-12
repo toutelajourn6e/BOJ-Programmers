@@ -15,7 +15,7 @@ for i in s:
         stack = ''
     elif tag == True:
         stack += i
-    elif tag == False:
+    else:
         if i == ' ':
             print(stack[::-1] + ' ',end ='')
             stack = ''

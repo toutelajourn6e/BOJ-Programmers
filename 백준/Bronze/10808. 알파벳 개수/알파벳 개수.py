@@ -1,12 +1,6 @@
-from string import ascii_lowercase
-import sys
+alpha = [0] * 26
 
-S = sys.stdin.readline().rstrip()
-alpha = list(ascii_lowercase)
-ans = [0]*26
-
-for i in S:
-    ans[(alpha.index(i))] += 1
+for s in input(): 
+    alpha[ord(s)-97]+=1
     
-print(' '.join(map(str, ans)))
-
+print(*alpha)

@@ -1,8 +1,11 @@
 n = int(input())
 i = 2
-while n != 1:
-    if n % i == 0:
-        n //= i
+
+while i * i <= n:
+    while n % i == 0:
         print(i)
-    else:
-        i += 1
+        n //= i
+    i+=1
+    
+if n != 1:
+    print(int(n))

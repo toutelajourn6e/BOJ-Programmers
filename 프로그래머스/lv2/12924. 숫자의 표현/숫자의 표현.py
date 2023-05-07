@@ -11,9 +11,4 @@ def solution(n):
                 continue
             else:
                 break
-    return ans
-            
-            
-                
-                
-            
+    return ans             

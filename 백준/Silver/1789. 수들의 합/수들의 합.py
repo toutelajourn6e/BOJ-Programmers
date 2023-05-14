@@ -10,9 +10,8 @@ while True:
     elif s + i > n:
         break
         
-    if s + i < n:
-        s += i
-        ans += 1
+    s += i
+    ans += 1
     
     i += 1
         

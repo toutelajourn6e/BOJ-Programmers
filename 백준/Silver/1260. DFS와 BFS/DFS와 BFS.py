@@ -1,46 +1,44 @@
 from collections import deque
+import sys
 
-n, m, v = map(int, input().split())
-
-gragh = [[] for _ in range(n+1)]
-for _ in range(m):
-    edge = list(map(int, input().split()))
-    gragh[edge[0]].append(edge[1])
-    gragh[edge[1]].append(edge[0])
-    
-for i in range(len(gragh)):
-    gragh[i] = sorted(gragh[i])
-
-result_dfs = []
-result_bfs = []
-visited_dfs = [False for _ in range(n+1)]
-visited_bfs = [False for _ in range(n+1)]
-
-
-def dfs(gragh, v):
-    visited_dfs[v] = True
+def dfs(v):
+    visited[v] = True
     result_dfs.append(v)
     
-    for i in gragh[v]:
-        if visited_dfs[i] == False:
-            dfs(gragh, i)
+    for i in sorted(gragh[v]):
+        if visited[i] == False:
+            dfs(i)
     
-def bfs(gragh, v):
+def bfs(v):
     q = deque()
     q.append(v)
-    visited_bfs[v] = True
+    visited[v] = True
     
     while q:
         v = q.popleft()
         result_bfs.append(v)
         
-        for i in gragh[v]:
-            if visited_bfs[i] == False:
+        for i in sorted(gragh[v]):
+            if visited[i] == False:
                 q.append(i)
-                visited_bfs[i] = True
-                
-dfs(gragh, v)
-bfs(gragh, v)
+                visited[i] = True
 
-print(' '.join(map(str, result_dfs)))
-print(' '.join(map(str, result_bfs)))
+n, m, v = map(int, input().split())
+
+gragh = [[] for _ in range(n+1)]
+for _ in range(m):
+    a, b = map(int, sys.stdin.readline().rstrip().split())
+    gragh[a].append(b)
+    gragh[b].append(a)
+
+result_dfs = []
+result_bfs = []
+
+visited = [False for _ in range(n+1)]
+         
+dfs(v)
+visited = [False for _ in range(n+1)]
+bfs(v)
+
+print(*result_dfs)
+print(*result_bfs)

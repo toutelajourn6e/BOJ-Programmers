@@ -1,8 +1,9 @@
 from collections import deque
+import sys
+input = sys.stdin.readline
 
-
-m, n, h = map(int, input().split())
-grid = [[list(map(int, input().split())) for _ in range(n)] for _ in range(h)]
+m, n, h = map(int, input().rstrip().split())
+grid = [[list(map(int, input().rstrip().split())) for _ in range(n)] for _ in range(h)]
 
 
 dx = [0, 0, 1, -1, 0, 0]
@@ -33,18 +34,15 @@ for i in range(h):
         
 bfs()
 
-flag = False
 result = 0
 
 for i in range(h):
     for j in range(n):
         for k in range(m):
             if grid[i][j][k] == 0:
-                flag = True
+                print(-1)
+                sys.exit(0)
             result = max(result, grid[i][j][k])
 
-if flag:
-    print(-1)
-else:
-    print(result - 1)
+print(result - 1)
 

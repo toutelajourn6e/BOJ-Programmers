@@ -31,7 +31,7 @@ def bfs(x, y, count):
                     q.append((nx, ny, count))
                     dist[nx][ny][count] = dist[x][y][count] + 1
                     
-                if grid[nx][ny] == 1 and count == 0:
+                if grid[nx][ny] == 1 and count == 0 and dist[nx][ny][count] == 0:
                     dist[nx][ny][count+1] = dist[x][y][count] + 1
                     q.append((nx, ny, count+1))
                 

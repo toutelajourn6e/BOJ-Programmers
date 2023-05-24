@@ -1,30 +1,30 @@
+from bisect import bisect_left
 import sys
+input = sys.stdin.readline
 
-t = int(sys.stdin.readline().rstrip())
+n = int(input().rstrip())
+arr = list(map(int, input().rstrip().split()))
 
-a = list(map(int, sys.stdin.readline().rstrip().split()))
-d = [0] * (t)
-v = [-1] * (t)
-    
-for i in range(t):
-    d[i] = 1
-    for j in range(i):
-        if a[j] < a[i]:
-            if d[j] == d[i]:
-                d[i] += 1
-                v[i] = j
-                
-ans = max(d)            
-print(ans)
+LIS = []
+LIS_idx = []
 
-p = [i for i, x in enumerate(d) if x == ans][0]
+for i in arr:
+    if not LIS or LIS[-1] < i:
+        LIS.append(i)
+        LIS_idx.append((len(LIS)-1, i))
+    else:
+        LIS[bisect_left(LIS, i)] = i
+        LIS_idx.append((bisect_left(LIS, i), i))
 
+        
+result = []
+length = len(LIS)-1
 
-def back(p):
-    if p == -1:
-        return
-    back(v[p])
-    print(a[p], end=' ')
-    
-back(p)
-    
+for i in range(len(LIS_idx)-1, -1, -1):
+    if LIS_idx[i][0] == length:
+        result.append(LIS_idx[i][1])
+        length -= 1
+        
+print(len(LIS))
+print(*result[::-1])
+        

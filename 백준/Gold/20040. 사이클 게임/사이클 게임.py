@@ -29,10 +29,10 @@ cycle = False
 
 for _ in range(m):
     a, b = map(int, input().rstrip().split())
-    if not cycle:
-        count += 1 
+    count += 1 
     if find(a) == find(b):
         cycle = True
+        break
     else:
         union(a, b)
         

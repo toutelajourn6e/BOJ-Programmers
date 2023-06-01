@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 def bf():
     distance[1] = 0
     

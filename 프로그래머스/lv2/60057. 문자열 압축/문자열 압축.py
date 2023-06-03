@@ -1,25 +1,20 @@
 def solution(s):
-    result = []
-    n = len(s)
-    if n == 1:
-        return 1
+    ans = len(s)
     
-    for i in range(1, n+1):
+    for i in range(1, len(s)//2 + 1):
         start = s[:i]
         count = 1
         concat = ''
-        for j in range(i, n+i, i):
+        for j in range(i, len(s), i):
             if start == s[j:j+i]:
                 count += 1
             else:
-                if count != 1:
-                    concat += str(count) + start
-                else:
-                    concat += start
-                
+                concat += str(count) + start if count > 1 else start
                 start = s[j:j+i]
                 count = 1
-                
-        result.append(len(concat))  
-    return min(result)
-            
+        
+        concat += str(count) + start if count > 1 else start
+        ans = min(ans, len(concat))
+        
+    return ans
+        

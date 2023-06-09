@@ -20,7 +20,6 @@ def solution(n, costs):
     
     for a, b, cost in costs:
         edges.append((cost, a, b))
-        edges.append((cost, b, a))
     
     edges.sort()
     

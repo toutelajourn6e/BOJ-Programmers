@@ -7,7 +7,7 @@ def solution(s):
     y += s.count('y')
     y += s.count('Y')
     
-    if p == y or (p == 0 and y == 0):
+    if p == y:
         return True
     else:
         return False

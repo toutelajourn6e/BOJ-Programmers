@@ -3,8 +3,7 @@ def radix(num, radix):
     while num:
         num, digit = divmod(num, radix)
         nums.append(str(digit))
-    nums.reverse()
     return ''.join(nums)
 
 def solution(n):
-    return int(radix(n, 3)[::-1], 3)
+    return int(radix(n, 3), 3)

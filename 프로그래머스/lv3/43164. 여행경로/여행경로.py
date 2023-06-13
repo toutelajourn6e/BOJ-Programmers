@@ -5,7 +5,7 @@ def travel(start, edges, n, result):
         return True
     
     for index, NEXT in enumerate(edges[start]):
-        edges[start].remove(NEXT)
+        del edges[start][index]
         if travel(NEXT, edges, n, result):
             return True
         edges[start].insert(index, NEXT)

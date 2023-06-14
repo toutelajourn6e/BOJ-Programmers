@@ -1,7 +1,7 @@
 dic = ['A', 'E', 'I', 'O', 'U']
 result = 0
 
-def combination(word, temp):
+def product(word, temp):
     global result
     if word == temp:
         return True
@@ -13,7 +13,7 @@ def combination(word, temp):
     
     for i in range(5):
         temp += dic[i]
-        if combination(word, temp):
+        if product(word, temp):
             return True
         else:
             temp = temp[:-1]
@@ -21,6 +21,6 @@ def combination(word, temp):
 
 def solution(word):
     temp = ''
-    combination(word, temp)
+    product(word, temp)
     return result
 

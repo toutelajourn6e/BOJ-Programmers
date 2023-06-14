@@ -1,15 +1,13 @@
-def solution(n):
-    ans = []
-    def hanoi(n, start=1, aux=2, end=3):
-        if n == 1:
-            ans.append([start, end])
-            return
-        
-        hanoi(n-1, start, end, aux)
-        
-        ans.append([start, end])
-        
-        hanoi(n-1, aux, start, end)
+def hanoi(n, start, via, end, result):
+    if n == 1:
+        result.append([start, end])
+        return
     
-    hanoi(n)
-    return ans
+    hanoi(n-1, start, end, via, result)
+    result.append([start, end])
+    hanoi(n-1, via, start, end, result)
+
+def solution(n):
+    result = []
+    hanoi(n, 1, 2, 3, result)
+    return result

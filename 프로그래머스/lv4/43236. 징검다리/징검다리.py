@@ -3,6 +3,7 @@ def solution(distance, rocks, n):
     start, end = 1, distance
     
     rocks.sort()
+    rocks.append(distance)
     
     while start <= end:
         mid = (start +end) // 2

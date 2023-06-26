@@ -1,6 +1,3 @@
-import sys
-sys.setrecursionlimit(10**6)
-
 class Trie:
     head = {}
     r_head = {}

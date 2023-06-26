@@ -1,16 +1,6 @@
-from collections import defaultdict
+from collections import Counter
 
 def solution(participant, completion):
-    person = defaultdict(int)
-    
-    for i in participant:
-        person[i] += 1
-        
-    for i in completion:
-        person[i] -= 1
-        
-    for i in person:
-        if person[i] == 1:
-            return i
-    
+    person = Counter(participant) - Counter(completion)
+    return list(person.keys())[0]
     

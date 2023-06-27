@@ -10,21 +10,8 @@ def solution(genres, plays):
         genre_cnt[genre] += play
         genre_best[genre].append((index, play))
         
-    for genre in genre_best:
-        genre_best[genre].sort(key=lambda x: (-x[1], x[0]))
-    
-    temp = []
-    for genre in genre_cnt:
-        temp.append((genre, genre_cnt[genre]))
-    
-    temp.sort(key=lambda x: -x[1])
-    
-    for genre, cnt in temp:
-        if len(genre_best[genre]) >= 2:
-            result.append(genre_best[genre][0][0])
-            result.append(genre_best[genre][1][0])
-        else:
-            result.append(genre_best[genre][0][0])
-                
-        
+    for genre, _ in sorted(genre_cnt.items(), key=lambda x: -x[1]):
+        for idx, _ in sorted(genre_best[genre], key=lambda x: -x[1])[:2]:
+            result.append(idx)
+            
     return result

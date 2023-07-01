@@ -4,10 +4,10 @@ def solution(money):
     dp1[0] = money[0]; dp1[1] = money[1]
     dp2[1] = money[1]
     
-    for i in range(len(dp1)-1):
+    for i in range(n-1):
         dp1[i] = max(dp1[i-2] + money[i], dp1[i-1])
         
-    for i in range(1, len(dp2)):
+    for i in range(1, n):
         dp2[i] = max(dp2[i-2] + money[i], dp2[i-1])
         
     

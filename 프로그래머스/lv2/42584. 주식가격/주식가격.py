@@ -8,16 +8,13 @@ def solution(prices):
     
     for i in range(n):
         price = prices.popleft()
-        if not stack:
-            stack.append((i, price))
-        else:
-            while stack:
-                if stack[-1][1] <= price:
-                    break
-                else:
-                    temp = stack.pop()
-                    result[temp[0]] = i - temp[0] 
-            stack.append((i, price))
+        while stack:
+            if stack[-1][1] <= price:
+                break
+            else:
+                temp = stack.pop()
+                result[temp[0]] = i - temp[0] 
+        stack.append((i, price))
             
     while stack:
         temp = stack.pop()

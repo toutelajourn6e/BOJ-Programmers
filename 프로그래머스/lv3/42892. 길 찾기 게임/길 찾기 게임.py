@@ -7,7 +7,6 @@ class Node:
         self.x = x
         self.left = None
         self.right = None
-
         
 def insert(num, x, root):
     if x < root.x:
@@ -45,24 +44,3 @@ def solution(nodeinfo):
     postorder(root, post_result)
     
     return [pre_result, post_result]
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

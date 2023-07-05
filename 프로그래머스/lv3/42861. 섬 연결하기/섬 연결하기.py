@@ -1,12 +1,11 @@
-def find(x, parent):
+def find(parent, x):
     if parent[x] != x:
-        parent[x] = find(parent[x], parent)
+        parent[x] = find(parent, parent[x])
     return parent[x]
 
-def union(a, b, parent):
-    a = find(a, parent)
-    b = find(b, parent)
-    
+def union(parent, a, b):
+    a = find(parent, a)
+    b = find(parent, b)
     if a < b:
         parent[b] = a
     else:
@@ -14,9 +13,9 @@ def union(a, b, parent):
 
 
 def solution(n, costs):
+    result = 0
     parent = [i for i in range(n)]
     edges = []
-    result = 0
     
     for a, b, cost in costs:
         edges.append((cost, a, b))
@@ -24,14 +23,9 @@ def solution(n, costs):
     edges.sort()
     
     for cost, a, b in edges:
-        if find(a, parent) != find(b, parent):
-            union(a, b, parent)
+        if find(parent, a) != find(parent, b):
+            union(parent, a, b)
             result += cost
             
+            
     return result
-    
-    
-    
-    
-    
-    

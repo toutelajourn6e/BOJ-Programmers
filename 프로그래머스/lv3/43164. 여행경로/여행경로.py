@@ -1,35 +1,24 @@
-def travel(start, edges, n, result):
-    result.append(start)
-    
-    if len(result) == n + 1:
-        return True
-    
-    for index, NEXT in enumerate(edges[start]):
-        del edges[start][index]
-        if travel(NEXT, edges, n, result):
-            return True
-        edges[start].insert(index, NEXT)
-        
-    result.pop()
-    return False
+from collections import defaultdict
 
-
+def dfs(edges, path, visit):
+    if path:
+        to = path[-1]
+        if edges[to]:
+            path.append(edges[to].pop(0))
+        else:
+            visit.append(path.pop())
+            
+        dfs(edges, path, visit)
+    
+    return visit[::-1]
 
 def solution(tickets):
-    n = len(tickets)
-    result = []
-    edges = {}
+    edges = defaultdict(list)
     
     for departure, arrival in tickets:
-        if departure not in edges:
-            edges[departure] = []
-        if arrival not in edges:
-            edges[arrival] = []
         edges[departure].append(arrival)
         
-    for i in edges:
-        edges[i] = sorted(edges[i])
+    for key in edges.keys():
+        edges[key].sort()
         
-    travel('ICN', edges, n, result)
-    
-    return result
+    return dfs(edges, ['ICN'], [])

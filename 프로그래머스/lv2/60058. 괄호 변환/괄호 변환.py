@@ -9,13 +9,8 @@ def check(w):
             if stack[-1] == '(':
                 stack.pop()
     return False if stack else True
-                
-def solution(p):
-    if p == '':
-        return ''
-    result = []
-    
-    def separate(w):
+
+def separate(w):
         u, v = '', ''
         l_cnt = r_cnt = 0
         
@@ -40,5 +35,10 @@ def solution(p):
                 else: u[i] = '('
             u = temp + ''.join(u)
         return u
-    
+                
+def solution(p):
+    if p == '':
+        return ''
     return separate(p)
+    
+    

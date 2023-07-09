@@ -3,7 +3,7 @@ from collections import deque
 def solution(begin, target, words):
     if target not in words:
         return 0
-    ans = 0
+
     n = len(words)
     visit = [False] * n
     distance = [0] * (n + 1)
@@ -12,7 +12,6 @@ def solution(begin, target, words):
     q.append(begin)
     
     while q:
-        print(distance)
         word = q.popleft()
         
         for index, compare in enumerate(zip([word] * n, words)):

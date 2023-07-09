@@ -13,7 +13,7 @@ def solution(gems):
                 break
             dic[gems[right]] = dic.get(gems[right], 0) + 1
         else:
-            if (right - left + 1) < (ans[1] - ans[0] + 1):
+            if (right - left) < (ans[1] - ans[0]):
                 ans = [left, right]
             if dic[gems[left]] == 1:
                 del dic[gems[left]]

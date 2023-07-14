@@ -1,7 +1,6 @@
 from collections import defaultdict
 
 def solution(id_list, report, k):
-    result = []
     report_cnt = defaultdict(set)
     
     for content in report:
@@ -18,5 +17,3 @@ def solution(id_list, report, k):
         id_list[i] = notice[id_list[i]]
         
     return id_list
-    
-    

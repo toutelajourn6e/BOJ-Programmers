@@ -1,13 +1,10 @@
-from collections import defaultdict
+from collections import Counter
 
 def solution(topping):
     chulsu = {}
-    brother = {}
+    brother = Counter(topping)
     ans = 0
     
-    for i in topping:
-        brother[i] = brother.get(i, 0) + 1
-        
     for i in topping:
         chulsu[i] = chulsu.get(i, 0) + 1
         if brother[i] == 1: del brother[i]

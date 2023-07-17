@@ -10,7 +10,7 @@ def radix(num, radix):
 
 def solution(n, t, m, p):
     nums = []
-    for i in range(50000):
+    for i in range(t * m + p):
         nums.append(radix(i, n))
     nums = ''.join(['0'] + nums)
     
@@ -21,6 +21,3 @@ def solution(n, t, m, p):
             break
     
     return ''.join(result)
-    
-    
-    

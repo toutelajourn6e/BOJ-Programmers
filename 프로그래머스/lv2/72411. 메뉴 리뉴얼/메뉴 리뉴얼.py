@@ -1,6 +1,5 @@
 from itertools import combinations
 from collections import defaultdict
-import re
 
 def solution(orders, course):
     menu = defaultdict(int)
@@ -23,6 +22,4 @@ def solution(orders, course):
             if val > 1 and len(key) == i and val == max_v[i]:
                 result.append(key)
                 
-    return sorted(result)
-            
-        
+    return sorted(result)    

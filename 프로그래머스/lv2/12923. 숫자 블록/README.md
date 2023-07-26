@@ -1,6 +1,6 @@
 # [level 2] 숫자 블록 - 12923 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12923) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12923#) 
 
 ### 성능 요약
 

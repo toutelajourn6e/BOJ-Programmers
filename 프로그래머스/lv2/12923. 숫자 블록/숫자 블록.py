@@ -1,19 +1,18 @@
+def cal(num):
+    if num == 1: return 0
+    elif num == 2: return 1
+    n = 10000000
+    if num // 2 < 10000000: n = num // 2
+    for i in range(n, 1, -1):
+        if not num % i:
+            return i
+    return 1
+
 def solution(begin, end):
-    answer = []
+    ans = [0] * ((end - begin)+1)
     
-    for i in range(begin, end + 1):
-        min_num = 1
-        max_num = 1
-        for j in range(2, int(i ** 0.5) + 1):
-            if i % j == 0:
-                if i // j <= 10000000:
-                    min_num = j
-                    answer.append(i // j)
-                    break
-                else:
-                    max_num = j
-        if i == 1:
-            answer.append(0)
-        elif min_num == 1:
-            answer.append(max_num)
-    return answer
+    for i in range(len(ans)):
+        ans[i] = cal(begin + i)
+    
+    return ans
+        

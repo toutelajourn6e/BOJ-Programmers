@@ -2,13 +2,9 @@ from collections import defaultdict
 
 def solution(enroll, referral, seller, amount):
     ans = [0] * len(enroll)
-    profit = defaultdict(int)
     relations = defaultdict(str)
     info = defaultdict(int)
-    
-    for salesman, cnt in zip(seller, amount):
-        profit[salesman] += 100 * cnt
-        
+
     for idx, relation in enumerate(zip(enroll, referral)):
         salesman, boss = relation
         relations[salesman] = boss

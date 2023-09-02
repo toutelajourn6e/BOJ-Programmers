@@ -1,10 +1,10 @@
 # [unrated] flag에 따라 다른 값 반환하기 - 181933 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181933) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181933?language=java) 
 
 ### 성능 요약
 
-메모리: 10.2 MB, 시간: 0.00 ms
+메모리: 72.4 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -23,7 +23,7 @@ Empty
 <h5>제한사항</h5>
 
 <ul>
-<li>-1000 ≤ <code>a</code>, <code>b</code> ≤ 1,000</li>
+<li>-1,000 ≤ <code>a</code>, <code>b</code> ≤ 1,000</li>
 </ul>
 
 <hr>

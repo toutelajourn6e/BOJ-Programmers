@@ -7,10 +7,7 @@ class Solution {
         int last = num_list[num_list.length-1];
         int before_last = num_list[num_list.length-2];
         
-        if (last > before_last)
-            ans[ans.length-1] = last - before_last;
-        else
-            ans[ans.length-1] = last * 2;
+        ans[ans.length-1] = last > before_last ? last - before_last : last * 2;
         return ans;
     }
 }

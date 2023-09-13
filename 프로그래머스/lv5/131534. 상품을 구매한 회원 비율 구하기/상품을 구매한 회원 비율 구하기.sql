@@ -10,3 +10,4 @@ where user_id in (SELECT distinct user_id
                   from user_info
                   where year(joined) = 2021)
 group by 1, 2
+order by 1, 2

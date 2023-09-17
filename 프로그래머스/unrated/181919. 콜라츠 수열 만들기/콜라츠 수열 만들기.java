@@ -6,14 +6,10 @@ class Solution {
         ans.add(n);
         
         while (n != 1){
-            if (n % 2 == 0)
-                n /= 2;    
-            else
-                n = (3 * n) + 1;
+            if (n % 2 == 0) n /= 2;    
+            else n = (3 * n) + 1;
             ans.add(n);
         }
-        int[] arr = {};
-        arr = ans.stream().mapToInt(i->i).toArray();
-        return arr;
+        return ans.stream().mapToInt(i->i).toArray();
     }
 }

@@ -1,15 +1,13 @@
 class Solution {
     public String solution(String my_string, int[][] queries) {
-        StringBuffer sb = new StringBuffer(my_string);
-        
-        for (int i = 0; i < queries.length; i++){
-            String tmp = sb.toString();
-            String before = tmp.substring(0, queries[i][0]);
-            String after = tmp.substring(queries[i][1] + 1);
-            String rev = tmp.substring(queries[i][0], queries[i][1] + 1);
-            StringBuffer sb2 = new StringBuffer(rev).reverse();
-            sb = new StringBuffer(before + sb2.toString() + after);
+        for (int[] q : queries){
+            int s = q[0], e = q[1];
+            StringBuffer sb = new StringBuffer();
+            for (int i = s; i <= e; i++){
+                sb.append(my_string.charAt(i));
+            }
+            my_string = my_string.substring(0, s) + sb.reverse().toString() + my_string.substring(e + 1);
         }
-        return sb.toString();
+        return my_string;
     }
 }

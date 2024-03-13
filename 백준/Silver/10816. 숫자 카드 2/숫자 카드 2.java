@@ -5,24 +5,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        HashMap<String, Integer> map = new HashMap<>();
     
         br.readLine();
-    
+        
+        int[] cards = new int[20000001];
         StringTokenizer st = new StringTokenizer(br.readLine());
         while (st.hasMoreTokens()) {
-            String cardNum = st.nextToken();
-            if (map.getOrDefault(cardNum, 0) == 0) {
-                map.put(cardNum, 1);
-            } else {
-                map.put(cardNum, map.get(cardNum) + 1);
-            }
+            int cardNum = Integer.parseInt(st.nextToken()) + 10000000;
+            cards[cardNum]++;
         }  
     
         br.readLine();
+        
         st = new StringTokenizer(br.readLine());
         while (st.hasMoreTokens()) {
-            sb.append(map.getOrDefault(st.nextToken(), 0) + " ");
+            int numberOfCard = cards[Integer.parseInt(st.nextToken()) + 10000000];
+            sb.append(numberOfCard + " ");
         }
     
         System.out.println(sb);

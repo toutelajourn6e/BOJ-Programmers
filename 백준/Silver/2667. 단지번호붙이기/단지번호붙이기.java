@@ -26,7 +26,7 @@ public class Main {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if (map[i][j] == 1 && !visited[i][j]) {
-					result.add(bfs(i, j));
+					result.add(dfs(i, j, 0));
 				}
 			}
 		}
@@ -39,30 +39,20 @@ public class Main {
 
 	}
 
-	static int bfs(int x, int y) {
-		Queue<int[]> q = new LinkedList<>();
-		q.add(new int[] {x, y});
+	static int dfs(int x, int y, int count) {
 		visited[x][y] = true;
 
-		int count = 0;
+		for (int i = 0; i < 4; i++) {
+			int nx = x + dx[i];
+			int ny = y + dy[i];
 
-		while (!q.isEmpty()) {
-			int curX = q.peek()[0];
-			int curY = q.peek()[1];
-			q.poll();
-			count++;
+			if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
+			if (map[nx][ny] != 1 || visited[nx][ny]) continue;
 
-			for (int i = 0; i < 4; i++) {
-				int nx = curX + dx[i];
-				int ny = curY + dy[i];
-				if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
-				if (map[nx][ny] != 1 || visited[nx][ny]) continue;
-
-				visited[nx][ny] = true;
-				q.add(new int[]{nx, ny});
-			}
+			count = dfs(nx, ny, count);
 		}
-		return count;
+
+		return count + 1;
 	}
 
 }

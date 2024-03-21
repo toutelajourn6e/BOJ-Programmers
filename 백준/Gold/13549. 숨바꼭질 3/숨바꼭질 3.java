@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	static Queue<Integer> pq = new PriorityQueue<>();
 	static final int MAX = 100000;
 	static int min = Integer.MAX_VALUE;
 	static boolean[] visited = new boolean[MAX+1];

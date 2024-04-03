@@ -1,8 +1,9 @@
+
 import java.io.*;
-import java.util.*;
 
 
 public class Main {
+	static final int INF = 1_000_000_000;
 	static int V, E;
 	static int[][] graph;
 
@@ -15,8 +16,8 @@ public class Main {
 
 		for (int i = 1; i < V + 1; i++) {
 			for (int j = 1; j < V + 1; j++) {
-				if (i == j) graph[i][j] = 0;
-				else graph[i][j] = Integer.MAX_VALUE;
+				if (i == j) continue;
+				graph[i][j] = INF;
 			}
 		}
 
@@ -35,10 +36,9 @@ public class Main {
 		for (int k = 1; k < V + 1; k++) {
 			for (int a = 1; a < V + 1; a++) {
 				for (int b = 1; b < V + 1; b++) {
-					if (graph[a][k] != Integer.MAX_VALUE && graph[k][b] != Integer.MAX_VALUE) {
-						if (graph[a][b] >= graph[a][k] + graph[k][b]) {
-							graph[a][b] = graph[a][k] + graph[k][b];
-						}
+					if (a == b) continue;					
+					if (graph[a][b] >= graph[a][k] + graph[k][b]) {
+						graph[a][b] = graph[a][k] + graph[k][b];
 					}
 
 				}
@@ -47,7 +47,7 @@ public class Main {
 
 		for (int i = 1; i < V + 1; i++) {
 			for (int j = 1; j < V + 1; j++) {
-				if (graph[i][j] == Integer.MAX_VALUE) System.out.print(0 + " ");
+				if (graph[i][j] >= INF) System.out.print(0 + " ");
 				else System.out.print(graph[i][j] + " ");
 			}
 			System.out.println();

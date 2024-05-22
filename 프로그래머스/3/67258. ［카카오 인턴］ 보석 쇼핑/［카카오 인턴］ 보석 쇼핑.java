@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +13,7 @@ class Solution {
         int left = 0, right = 0;
         gemCount.put(gems[left], 1);
 
-        while (left <= right && left < N && right < N) {
+        while (left <= right) {
             if (gemCount.size() >= kind) {
                 if (gemCount.size() == kind) {
                     if ((right - left) < minLength) {
@@ -35,7 +34,6 @@ class Solution {
                 gemCount.put(gems[right], gemCount.getOrDefault(gems[right], 0) + 1);
             }
         }
-
 
         return answer;
     }
